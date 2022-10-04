@@ -67,6 +67,9 @@ window.addEventListener('load', function() {
     function mouseMove(e) {
         stars.push(new Star(e.x, e.y))
     };
+    function touchMove(e) {
+        stars.push(new Star(e.touches[0].clientX, e.touches[0].clientY))
+    };
     function randInit(min, max) {
         return Math.round(Math.random() * (max - min)) + min;
     };
@@ -82,6 +85,7 @@ window.addEventListener('load', function() {
         requestAnimationFrame(animationLoop);
     };
 
-    window.addEventListener('mousemove', mouseMove);
     window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('touchmove', touchMove);
 });
